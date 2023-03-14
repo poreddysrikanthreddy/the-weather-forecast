@@ -1,12 +1,12 @@
 import "./App.css";
-import TopButtons from "./components/TopButtons";
+
 import Inputs from "./components/Inputs";
 import TimeAndLocation from "./components/TimeAndLocation";
 import TemperatureAndDetails from "./components/TemperatureAndDetails";
 import Forecast from "./components/Forecast";
 import getFormattedWeatherData from "./services/weatherService";
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -39,26 +39,21 @@ function App() {
 
     return "from-yellow-700 to-orange-700";
   };
-  console.log("this is srikath",weather)
+  console.log("this is srikath", weather);
 
   return (
     <div
       className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
     >
-      <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
         <div>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
-
-          <Forecast title="hourly forecast" items={weather.hourly} />
-          <Forecast title="daily forecast" items={weather.daily} />
+          <Forecast title="next 5 days forecast" items={weather.daily} />
         </div>
       )}
-
-      {/* <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} /> */}
     </div>
   );
 }

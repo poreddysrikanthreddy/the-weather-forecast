@@ -60,14 +60,6 @@ function Inputs({ setQuery, units, setUnits }) {
         >
           °C
         </button>
-        <p className="text-xl text-white mx-1">|</p>
-        <button
-          name="imperial"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
-          onClick={handleUnitsChange}
-        >
-          °F
-        </button>
       </div>
     </div>
   );
